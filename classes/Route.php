@@ -23,7 +23,8 @@ class Route {
 		foreach($this->keys as $i => $key) {
 			$keyvalues[$key['name']] = ( $values[ $i + 1][0] == '' && $key['optional'] ? null : $values[$i + 1][0] );
 		}
-		//parse results and then make phpwork init page object.	
+		
+		$phpwork->load( $this->page, $keyvalues );
 	}
 	
 	
