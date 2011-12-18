@@ -1,8 +1,7 @@
 <?php
 abstract class Page {
 	
-	public function __construct( $phpwork, $params, $pageChain = null ){
-		
+	public function __construct( $phpwork, $params, $pageChain = null ){	
 	}
 	
 	public function layout() {
