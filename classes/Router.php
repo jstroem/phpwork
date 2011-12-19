@@ -14,15 +14,14 @@ class Router {
 	}
 	
 	public function route( $url ) {
-		$found = false;
 		foreach ( $this->routes as $route ) {
 			
 			if ( $route->match( $url ) ) {
 				$route->go( $url, $this->phpwork );
-				$found = true;
+				return true;
 			}
 		}
-		return $found;
+		return false;
 	}
 	
 	public function route_error( $page ) {
