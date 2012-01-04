@@ -65,7 +65,11 @@ class Phpwork {
 	}
 	
 	public function walk($path) {
-		 $this->router->route($path);
+		 if ( !$this->router->route($path) ) {
+		 	$this->page = new NotFound( $this, array() );
+		 } else {
+		 	return true;
+		 }
 	}
 	
 	public function view( ){
@@ -73,7 +77,7 @@ class Phpwork {
 		$this->page = ($this->page === null ? $this->router->not_found() : $this->page );
 		if ( $this->page->layout() ) {
 			//Create index
-			$this->page = new Main( $this, $this->globals, $this->page);
+			$this->page = new Layout( $this, $this->globals, $this->page );
 		}
 		return $this->page->render( );
 	}

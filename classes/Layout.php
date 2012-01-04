@@ -1,6 +1,6 @@
 <?php
-class Main extends Page {
-	protected $tmpl = 'main.mustache';
+class Layout extends Page {
+	protected $tmpl = 'layout.mustache';
 	
 	public function __construct( $phpwork, $params, $page ) {
 		parent::__construct($phpwork, $params);
@@ -11,7 +11,7 @@ class Main extends Page {
 		$tmpl = $this->phpwork->tmpl( $this->tmpl );
 		$engine = $this->phpwork->engine();
 		
-		return $engine->render($tmpl, $this->page);
+		return $engine->render( $tmpl, $this->page );
 	}
 }
 ?>

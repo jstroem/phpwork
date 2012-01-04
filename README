@@ -1,1 +1,45 @@
 simple framework in php inspired by express.js
+
+
+#  Build in with html5boilerplate. #
+
+## Updating ## 
+	when updateing html5boilerplate
+	insert every file into these folders:
+	build/* -> build/*
+	css/* -> css/*
+	js/* -> js/*
+	apple-touch-icon.png -> apple-touch-icon.png
+	apple-touch-icon-57x57-precomposed.png -> apple-touch-icon-57x57-precomposed.png
+	apple-touch-icon-72x72-precomposed.png -> apple-touch-icon-72x72-precomposed.png
+	apple-touch-icon-114x114-precomposed.png -> apple-touch-icon-114x114-precomposed.png
+	apple-touch-icon-precomposed.png -> apple-touch-icon-precomposed.png
+	crossdomain.xml -> crossdomain.xml
+	favicon.ico _> facicon.ico
+	humans.txt -> humans.txt
+	robots.txt -> robots.txt
+	index.html -> tmpl/index.mustache
+	404.html -> tmpl/404.mustache
+	.htaccess -> .htaccess
+	
+	
+	Update tmpl/index.mustache insert {{{render}}} in between <div id="main" role="main"></div> tags
+	
+	Update .htacces with the following.
+	 * Comment out ErrorDocument 404 /404.html under section 'Custom 404 page' 
+	 * Insert following lines at the end of the file:
+			<IfModule mod_rewrite.c>
+			  RewriteCond %{REQUEST_FILENAME} !-f
+			  RewriteCond %{REQUEST_FILENAME} !-d
+			  RewriteRule ^(.+)$ index.php
+			</IfModule>
+	
+	Update build/config/default.properties with the following
+	 * Add the following lines after the dir definitions:
+	 	dir.tmpl			= tmpl
+		dir.modules			= modules
+		dir.modules.mustache = ${dir.modules}/mustache.php
+	 * Append the following '**/.settings/**, ${dir.modules.mustache}/examples/**, ${dir.modules.mustache}/test/**, ${dir.modules.mustache}/LICENSE, ${dir.modules.mustache}/README.markdown' to line file.default.exclude
+	 * Change the config for file.pages.default.include to '${dir.tmpl}/**'
+	 
+## Building ##

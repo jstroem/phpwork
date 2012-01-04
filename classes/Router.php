@@ -15,7 +15,6 @@ class Router {
 	
 	public function route( $url ) {
 		foreach ( $this->routes as $route ) {
-			
 			if ( $route->match( $url ) ) {
 				$route->go( $url, $this->phpwork );
 				return true;
